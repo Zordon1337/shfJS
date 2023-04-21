@@ -15,6 +15,6 @@ run index.js with "node index.js"
 frontend or gui
 multiple accounts
 Handling LoggedInElsewhere Event
-Handling SteamGuard Event
+~~Handling SteamGuard Event~~ it was added in steam-user :facepalm:
 ```
 
