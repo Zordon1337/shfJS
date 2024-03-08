@@ -1,23 +1,29 @@
 const SteamUsr = require('steam-user');
-const acc1 = new SteamUsr();
-const cfg = require('./config.json');
-acc1.logOn(cfg);
+const cfgs = require('./config.json');
 
-acc1.on('loggedOn',()=>{
-    console.log("Succesfully logged to: " + cfg.accountName);
-    if(cfg.visible == true)
-    {
-        acc1.setPersona(SteamUsr.EPersonaState.Online);
-    } 
-    if(cfg.visible == false) {
-        acc1.setPersona(SteamUsr.EPersonaState.invisibe);
+const accounts = [];
+
+for (const cfg of cfgs) {
+  const acc = new SteamUsr();
+
+  acc.logOn(cfg);
+
+  acc.on('loggedOn', () => {
+    console.log("Successfully logged in to: " + cfg.accountName);
+    if (cfg.visible === true) {
+      acc.setPersona(SteamUsr.EPersonaState.Online);
+    } else {
+      acc.setPersona(SteamUsr.EPersonaState.Invisible);
     }
-    acc1.gamesPlayed(cfg.acc1games);
-    console.log("Farming hours on:" + cfg.acc1games);
-})
+    acc.gamesPlayed(cfg.games);
+    console.log("Farming hours on: " + cfg.games);
+  });
 
-acc1.on('LoggedInElsewhere',()=>{
+  acc.on('LoggedInElsewhere', () => {
     console.log("Someone logged into account");
-    console.log("trying to relogin");
-    acc1.logOn(cfg);
-})
+    console.log("Trying to relogin");
+    acc.logOn(cfg);
+  });
+
+  accounts.push(acc);
+}

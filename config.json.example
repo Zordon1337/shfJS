@@ -1,6 +1,14 @@
-{
-    "accountName": "",
-    "password": "",
-    "acc1games":[730,1625450],
-    "visible":true
-}
+[
+  {
+    "accountName": "account1",
+    "password": "password1",
+    "games": [730, 1625450],
+    "visible": true
+  },
+  {
+    "accountName": "account2",
+    "password": "password2",
+    "games": [730],
+    "visible": false
+  }
+]
