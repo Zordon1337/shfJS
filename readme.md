@@ -13,8 +13,6 @@ run index.js with "node index.js"<br/>
 
 
 frontend or gui<br/>
-multiple accounts<br/>
-Handling LoggedInElsewhere Event<br/>
 ~~Handling SteamGuard Event~~ it was added in steam-user :facepalm:
 
 
